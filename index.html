@@ -21,27 +21,30 @@ function loadXMLDoc(){
     if(this.readyState==4 && this.status==200){
       myFunction(this);}};
   xhttp.open("GET","food.xml",true);
-  xhttp.send(null);}
+  xhttp.send();}
+
+function getText(parent,tag){
+  var el=parent.getElementsByTagName(tag)[0];
+  return el?el.textContent:"";}
 
 function myFunction(xml){
   var xmlDoc=xml.responseXML;
-  var x=xmlDoc.getElementsByTagName("food");
+  var foods=xmlDoc.getElementsByTagName("food");
   var table=document.getElementById("foodTable");
 
-  for(var i=0;i<x.length;i++){
-    var name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-    var price=x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+  for(var i=0;i<foods.length;i++){
+    var name=getText(foods[i],"name");
+    var price=getText(foods[i],"price");
 
     var row=table.insertRow(-1);
-    var cell1=row.insertCell(0);
-    var cell2=row.insertCell(1);
-
-    cell1.innerHTML=name;
-    cell2.innerHTML=price;}}
+    row.insertCell(0).innerHTML=name;
+    row.insertCell(1).innerHTML=price;}}
 
 window.onload=loadXMLDoc;
 </script>
 
 
+
 </body>
 </html>
+
