@@ -2,16 +2,26 @@
 <html>
 <head>
     <title>Food Menu</title>
+<style>
+body {font-family: Arial; background-color: lightpink; padding: 30px;}
+h2 {color: darkblue;}
+table {width: 100%; border-collapse: collapse;background-color: white;}
+th {background-color: hotpink; color: white; padding: 8px;}
+td {padding: 8px;}
+tr:nth-child(even) {background-color: lightblue;}
+p {margin-top: 15px;}
+</style>
 </head>
 <body>
+<div id="wrap">
 
 <h2>Breakfast Menu</h2>
 
 <table border="1" id="FoodTable">
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
 </table>
 
 <p>
@@ -31,7 +41,7 @@ function loadXMLDoc(){
 function myFunction(xml){
   var xmlDoc=xml.responseXML;
   var foods=xmlDoc.getElementsByTagName("food");
-  var table=document.getElementById("foodTable");
+  var table=document.getElementById("FoodTable");
 
   for(var i=0;i<foods.length;i++){
     var name=foods[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
@@ -46,9 +56,10 @@ window.onload=loadXMLDoc;
 
 
 
-
+</div>
 </body>
 </html>
+
 
 
 
