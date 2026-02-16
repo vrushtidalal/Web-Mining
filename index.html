@@ -4,7 +4,7 @@
     <title>Food Menu</title>
 <style>
 body {font-family: Arial; background-color: lightpink; padding: 30px;}
-h2 {color: darkblue;}
+h2 {color: Maroon;}
 table {width: 100%; border-collapse: collapse;background-color: white;}
 th {background-color: hotpink; color: white; padding: 8px;}
 td {padding: 8px;}
@@ -46,7 +46,6 @@ function myFunction(xml){
   for(var i=0;i<foods.length;i++){
     var name=foods[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
     var price=foods[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
-
     var row=table.insertRow(-1);
     row.insertCell(0).innerHTML=name;
     row.insertCell(1).innerHTML=price;}}
@@ -54,11 +53,10 @@ function myFunction(xml){
 window.onload=loadXMLDoc;
 </script>
 
-
-
 </div>
 </body>
 </html>
+
 
 
 
